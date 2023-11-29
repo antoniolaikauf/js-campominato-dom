@@ -34,7 +34,7 @@ button.addEventListener("click", function () {
             // evento per dare bg ad newelemn
             newElement.addEventListener("click", function () {
                 newElement.classList.add("js-backgrounditems")
-                score = score + 1;
+                score++;
                 // console.log(i);
 
                 // loop per controllare dentro all'array delle bombe
@@ -52,6 +52,12 @@ button.addEventListener("click", function () {
                         console.log("hai fatto " + score + " punti");
                      }
                 }
+                // controllo se vince sboloccando tutte le caselle
+                if (score === 100-arraynum.length) {
+                    mainContenitore.innerHTML="hai vinto ma hai consumato tutta la tua fortuna "
+                    console.log(score);
+                }
+                console.log(score);
             })
         }
 
@@ -86,3 +92,4 @@ function numerGenerated (maxBomb) {
 function randomNumber(max, min) {
     return Math.floor(Math.random() * max + min)
 }
+
