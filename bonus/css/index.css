@@ -71,3 +71,7 @@ footer{
     text-align: center;
     border: 1px solid black;
 }
+
+.js-bomba{
+    background-color: red;
+}
