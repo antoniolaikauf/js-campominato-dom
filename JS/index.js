@@ -12,8 +12,12 @@ button.addEventListener("click", function () {
         contenitoreGriglia.classList.add("js-contenitore");
         // aggiunto contenitore dentro main
         mainContenitore.append(contenitoreGriglia);
-        // ciclo per creare items
 
+        // array con dentro le bombe
+        let arraynum= numerGenerated();
+        console.log(arraynum);
+
+        // ciclo per creare items
         for (let i = 1; i <= 100; i++) {
         //   creazione contenuto della griglia
             let newElement = createItems()
@@ -21,15 +25,20 @@ button.addEventListener("click", function () {
 
             contenitoreGriglia.append(newElement);
 
-            // evento per dare bg ad newelemnt
+
+            // evento per dare bg ad newelemn
             newElement.addEventListener("click", function () {
                 newElement.classList.add("js-backgrounditems")
                 console.log(i);
+                for (let y = 0; y < arraynum.length; y++) {
+                    // controllo se preso bomba o no
+                     if (i ===  arraynum[y]) {
+                        newElement.classList.add("js-bomba")
+                     }
+                }
+               
             })
         }
-
-
-        console.log(numerGenerated());
 
 })
 
@@ -37,33 +46,26 @@ button.addEventListener("click", function () {
 function createItems() {
     // creazione degli items
    let items= document.createElement("div");
-
+    // aggiunto classe a items
    items.classList.add("js-square");
 
     return items
 }
 
 
-
-
-// let number = randomNumber()
-// console.log(number);
-
+// funzione per creare l'array con i numeri 
 function numerGenerated () {
     let arraynum= [];
     while (arraynum.length < 16) {
-        let bla= randomNumber()
-        if (!arraynum.includes(bla)) {
-            arraynum.push(bla)
+        let numeri= randomNumber()
+        if (!arraynum.includes(numeri)) {
+            arraynum.push(numeri)
         }
     }
     return arraynum
 }
 
-// console.log(numerGenerated());
-
+// funzione per creare un numero random
 function randomNumber() {
     return Math.floor(Math.random() * 100 +1)
 }
-
-
