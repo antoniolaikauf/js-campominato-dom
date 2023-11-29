@@ -13,6 +13,7 @@ button.addEventListener("click", function () {
         // aggiunto contenitore dentro main
         mainContenitore.append(contenitoreGriglia);
         // ciclo per creare items
+
         for (let i = 1; i <= 100; i++) {
         //   creazione contenuto della griglia
             let newElement = createItems()
@@ -26,6 +27,10 @@ button.addEventListener("click", function () {
                 console.log(i);
             })
         }
+
+
+        console.log(numerGenerated());
+
 })
 
 // funzione per creare un nuovo elemento
@@ -40,9 +45,25 @@ function createItems() {
 
 
 
+
+// let number = randomNumber()
+// console.log(number);
+
+function numerGenerated () {
+    let arraynum= [];
+    while (arraynum.length < 16) {
+        let bla= randomNumber()
+        if (!arraynum.includes(bla)) {
+            arraynum.push(bla)
+        }
+    }
+    return arraynum
+}
+
+// console.log(numerGenerated());
+
 function randomNumber() {
     return Math.floor(Math.random() * 100 +1)
 }
 
-let number = randomNumber()
-console.log(number);
+
