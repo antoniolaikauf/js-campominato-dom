@@ -17,6 +17,10 @@ button.addEventListener("click", function () {
         let arraynum= numerGenerated();
         console.log(arraynum);
 
+        // variabile punteggio 
+        let score = 0;
+
+        
         // ciclo per creare items
         for (let i = 1; i <= 100; i++) {
         //   creazione contenuto della griglia
@@ -25,19 +29,26 @@ button.addEventListener("click", function () {
 
             contenitoreGriglia.append(newElement);
 
-
+            
             // evento per dare bg ad newelemn
             newElement.addEventListener("click", function () {
                 newElement.classList.add("js-backgrounditems")
-                console.log(i);
+                score = score + 1;
+                // console.log(i);
+
+                // loop per controllare dentro all'array delle bombe
                 for (let y = 0; y < arraynum.length; y++) {
                     // controllo se preso bomba o no
                      if (i ===  arraynum[y]) {
+
                         newElement.classList.add("js-bomba");
                         mainContenitore.innerHTML="hai perso";
+
+                        // calcolo puntggi 
+                        score = score -1;
+                        console.log("hai fatto " + score + " punti");
                      }
                 }
-               
             })
         }
 
