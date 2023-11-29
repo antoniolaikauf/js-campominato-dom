@@ -14,7 +14,7 @@ button.addEventListener("click", function () {
         mainContenitore.append(contenitoreGriglia);
 
         // array con dentro le bombe
-        let arraynum= numerGenerated(16);
+        let arraynum= numerGenerated(1,100,16);
         console.log(arraynum);
 
         // variabile punteggio 
@@ -57,7 +57,6 @@ button.addEventListener("click", function () {
                     mainContenitore.innerHTML="hai vinto ma hai consumato tutta la tua fortuna "
                     console.log(score);
                 }
-                console.log(score);
             })
         }
 
@@ -75,12 +74,12 @@ function createItems() {
 
 
 // funzione per creare l'array con i numeri 
-function numerGenerated (maxBomb) {
+function numerGenerated (minNub,maxNub,maxBomb) {
     // creazione dell'arry
     let arraynum= [];
     // ciclo per controllare se array mette numeri doppi
     while (arraynum.length < maxBomb) {
-        let numeri= randomNumber( 100, 1)
+        let numeri= randomNumber( maxNub, minNub)
         if (!arraynum.includes(numeri)) {
             arraynum.push(numeri)
         }
