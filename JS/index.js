@@ -33,7 +33,8 @@ button.addEventListener("click", function () {
                 for (let y = 0; y < arraynum.length; y++) {
                     // controllo se preso bomba o no
                      if (i ===  arraynum[y]) {
-                        newElement.classList.add("js-bomba")
+                        newElement.classList.add("js-bomba");
+                        mainContenitore.innerHTML="hai perso";
                      }
                 }
                
