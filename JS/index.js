@@ -14,7 +14,7 @@ button.addEventListener("click", function () {
         mainContenitore.append(contenitoreGriglia);
 
         // array con dentro le bombe
-        let arraynum= numerGenerated();
+        let arraynum= numerGenerated(16);
         console.log(arraynum);
 
         // variabile punteggio 
@@ -27,6 +27,7 @@ button.addEventListener("click", function () {
             let newElement = createItems()
             newElement.append(i)
 
+            // mettere elementi dentro a contenitore
             contenitoreGriglia.append(newElement);
 
             
@@ -40,9 +41,11 @@ button.addEventListener("click", function () {
                 for (let y = 0; y < arraynum.length; y++) {
                     // controllo se preso bomba o no
                      if (i ===  arraynum[y]) {
-
+                        // aggiunto classi items con caratteristica bomba
                         newElement.classList.add("js-bomba");
-                        mainContenitore.innerHTML="hai perso";
+                        setTimeout(function() {
+                            mainContenitore.innerHTML="hai perso";
+                        }, 300);
 
                         // calcolo puntggi 
                         score = score -1;
@@ -66,10 +69,12 @@ function createItems() {
 
 
 // funzione per creare l'array con i numeri 
-function numerGenerated () {
+function numerGenerated (maxBomb) {
+    // creazione dell'arry
     let arraynum= [];
-    while (arraynum.length < 16) {
-        let numeri= randomNumber()
+    // ciclo per controllare se array mette numeri doppi
+    while (arraynum.length < maxBomb) {
+        let numeri= randomNumber( 100, 1)
         if (!arraynum.includes(numeri)) {
             arraynum.push(numeri)
         }
@@ -78,6 +83,6 @@ function numerGenerated () {
 }
 
 // funzione per creare un numero random
-function randomNumber() {
-    return Math.floor(Math.random() * 100 +1)
+function randomNumber(max, min) {
+    return Math.floor(Math.random() * max + min)
 }
