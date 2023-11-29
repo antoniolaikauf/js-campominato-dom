@@ -1,0 +1,73 @@
+/* setup generici */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+/* caratteristiche header */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    height: 60px;
+}
+
+header img{
+    height: 60px;
+}
+
+#logo, #difficolta{
+    display: flex;
+    align-items: center;
+}
+
+/* caratteristiche main */
+main{
+    height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7fffd4;
+}
+/* caratteristiche footer */
+footer{
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 10px;
+}
+
+/* caratteristiche classe js */
+.js-square{
+    width: calc(100% / 10 );
+    height:calc(100% / 10) ;
+    text-align: center;
+    border: 1px solid black;
+}
+/* caratteristiche container */
+.js-contenitore{
+    flex-wrap: wrap;
+    width: 450px;
+    height: 450px;
+    display: flex;
+}
+
+.js-backgrounditems{
+    background-color: #03A9F4;
+}
+
+/* caratteristiche tabella con diverse difficoltà */
+/* difficolta hard+ */
+.js-square1{
+    width: calc(100% / 9 );
+    height:calc(100% / 9) ;
+    text-align: center;
+    border: 1px solid black;
+}
+/* difficolta ard++ */
+.js-square2{
+    width: calc(100% / 7 );
+    height:calc(100% / 7) ;
+    text-align: center;
+    border: 1px solid black;
+}
